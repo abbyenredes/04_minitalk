@@ -47,7 +47,7 @@ Se trata de aprender a usar señales UNIX creando un pequeño programa de interc
   <tr>
     <td>
 <p> 
-<img height="350" src="https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/01%20streamer.png" align="right">¿Alguna vez estuviste en un live de algún creador de contenido u streamer? 
+<img height="350" src="https://github.com/abbyenredes/04_minitalk/blob/main/img/01%20streamer.png" align="right">¿Alguna vez estuviste en un live de algún creador de contenido u streamer? 
 Si tu respuesta es afirmativa de seguro que le comentaste algo y aparecio en la pantalla de tu streamer. Algo así se siente realizar este proyecto, enviar un mensaje y que en menos de 1 milisegundo este en pantalla.
 </p>
     </td>
@@ -57,13 +57,13 @@ Si tu respuesta es afirmativa de seguro que le comentaste algo y aparecio en la 
 #### Prerrequisitos
 - [x] crear un programa de comunicación en la forma de un cliente y un servidor.
 - [x] Proporcionar un Makefile para ejecutar dichos programas.
-- [x] Usar nuestra [libft](https://github.com/abbyenredes/42-Madrid-Cursus/tree/main/00_libft).
+- [x] Usar nuestra [libft](https://github.com/abbyenredes/00_libft).
 - [x] Se permite usar las siguientes funciones:
 
 | Funciones | Descripción |
 | ------------- | ------------- |
 | Write  | Función de escritura de la libreria unistd.h |
-| [ft_printf](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/libft_2.0/ft_printf.c)  | Nuestra función de escritura |
+| [ft_printf](https://github.com/abbyenredes/03_ft_printf)  | Nuestra función de escritura |
 | Signal | Permite a un programa elegir una de varias formas de manejar una señal de interrupción del sistema operativo o de la función raise(). `void (*signal (int signo, void (*func) (int)))(int);` `signo: es el nombre de la señal.` `func: puede ser la constante para usar la acción por defecto, o puede ser una función definida por el programa. El valor retornado es un puntero al manejador previamente instalado para esa señal.` |
 | sigemptyset | Iniciar una máscara de señales vacía `int sigemptyset(sigset_t *set);` Los conjuntos de señales se utilizan para manipular grupos de señales utilizados por otras funciones (como sigprocmask()) o para examinar conjuntos de señales devueltos por otras funciones (como sigpending()) `Si tiene éxito, sigemptyset() devuelve 0.` |
 | sigaddset  | Añadir una señal específica a una máscara. `int sigaddset(sigset_t *set, int signal);` Las aplicaciones deben llamar a sigemptyset() o sigfillset() al menos una vez para cada objeto de tipo sigset_t antes de cualquier otro uso de ese objeto. `Si la señal se agrega correctamente al conjunto de señales, sigaddset() devuelve 0. Si la señal no es compatible, sigaddset() devuelve -1 y establece errno en EINVAL.` |
@@ -106,7 +106,7 @@ Este apartado lo he llamado así porque explicare gráficamente como se hará el
 <table>
   <tr>
     <td>
-<img height="850" src="https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/Humo.png" align="center">
+<img height="850" src="https://github.com/abbyenredes/04_minitalk/blob/main/img/Humo.png" align="center">
     </td>
   </tr>
 </table>
@@ -116,11 +116,11 @@ En una terminal ejecutaremos el programa cliente, el cual debe recibir 2 paramet
 > PID:
 > > Es un número único asignado a cada proceso en ejecución en un sistema operativo.
 > > Para conocer el PID basta con teclear el comando `ps u`
-> > ![show-PID](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/signal.gif)
+> > ![show-PID](https://github.com/abbyenredes/04_minitalk/blob/main/img/signal.gif)
 > >
 > > Cada vez que ejecutes un proceso el PID cambiará, algo así como los cvv dinámicos.
 > > También para conocer el PID podemos usar la función `getpid()`
-> > ![](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/getpid.gif)
+> > ![](https://github.com/abbyenredes/04_minitalk/blob/main/img/getpid.gif)
 > >
 
 > String
@@ -151,7 +151,7 @@ Con esto concluimos el apartado señales de humo, para volcarnos realmente en lo
 
 ### Servidor
 - [x] Se lanzará primero y emitira su PID.
-![](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/getpid__.gif)
+![](https://github.com/abbyenredes/04_minitalk/blob/main/img/getpid__.gif)
 > [!NOTE]
 > Aún soy novata en enlazar mi propia libreria, así que demomento usare el siguiente comando:
 > ```
@@ -164,7 +164,7 @@ Con esto concluimos el apartado señales de humo, para volcarnos realmente en lo
 > > En este caso lo usaremos como si de un bit se tratara, recuerdas el ejemplo de Bayta, la letra B corresponde al ASCII 66 y en binario es igual a 01000010. ¿Y si a SIGUSR1 le damos el valor de 1 y a SIGUSR2 el valor 0?
 > > Nos queda algo así : `SIGUSR2 SIGUSR1 SIGUSR2 SIGUSR2 SIGUSR2 SIGUSR2 SIGUSR1 SIGUSR2` 8 bits en señales de UNIX.
 > > Pero esto no queda así, te mostraré como operar a nivel binario:
-> > ![binario](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/04_minitalk/img/calculo-Binario.png)
+> > ![binario](https://github.com/abbyenredes/04_minitalk/blob/main/img/calculo-Binario.png)
 
 - [X] Mostrar la string rápido <=0,00001 seg.
 
@@ -175,7 +175,7 @@ Mi programa tarda uslepp(50) en mostrar el mensaje.
 ### Cliente
 - [X] Tomar como parámetros PID y string.
 
-Para el PID usaremos nuestra famosa función [ft_atoi](https://github.com/abbyenredes/42-Madrid-Cursus/blob/main/00_libft/ft_atoi.c), que convierte carácteres en números, y otra función que nos convierta nuestra string a binaria, la mia la llamaré ft_binary_conversion (aplico un poco de clean code).
+Para el PID usaremos nuestra famosa función [ft_atoi](https://github.com/abbyenredes/04_minitalk/blob/main/libft/ft_atoi.c), que convierte carácteres en números, y otra función que nos convierta nuestra string a binaria, la mia la llamaré ft_binary_conversion (aplico un poco de clean code).
 - [X] Comunicar la string pasada como parámetro al servidor.
 
 > [!WARNING]
@@ -200,9 +200,6 @@ Para el PID usaremos nuestra famosa función [ft_atoi](https://github.com/abbyen
 
 ![](link)
 
-## Roadmap
-
-![](link)
 
 # Good Luck
 ![](link)
